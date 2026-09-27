@@ -1,0 +1,1145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    color: #17130d;
+    font-family: "Georgia", "Times New Roman", serif;
+    background: #0b0906;
+}
+
+/* =========================================
+   PÁGINAS
+========================================= */
+
+.pagina {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    overflow: hidden;
+}
+
+.pagina.activa {
+    display: flex;
+}
+
+/* =========================================
+   FONDO GENERAL DE ESTRELLAS
+========================================= */
+
+.estrellas-fondo {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        radial-gradient(circle, #d4af37 1px, transparent 2px),
+        radial-gradient(circle, #fff4c2 1px, transparent 2px),
+        radial-gradient(circle, #8d7021 1px, transparent 2px);
+
+    background-size:
+        90px 90px,
+        150px 150px,
+        210px 210px;
+
+    opacity: .5;
+
+    animation: fondoEstrellas 18s linear infinite;
+}
+
+/* =========================================
+   PÁGINA 1
+========================================= */
+
+#pagina1 {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #fff9e8 0%,
+            #eadbb3 35%,
+            #b99b52 100%
+        );
+}
+
+#pagina1::before {
+    content: "";
+
+    position: absolute;
+    inset: 22px;
+
+    border: 2px solid #b08a28;
+
+    box-shadow:
+        inset 0 0 0 7px #fff9e8,
+        inset 0 0 0 9px #b08a28;
+
+    pointer-events: none;
+}
+
+#pagina1::after {
+    content: "✦";
+
+    position: absolute;
+    top: 35px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: #b08a28;
+    font-size: 28px;
+}
+
+/* =========================================
+   DECORACIÓN DE ESQUINAS
+========================================= */
+
+#pagina1 .inicio::before {
+    content: "❦";
+
+    position: absolute;
+    top: -90px;
+    left: -90px;
+
+    color: #b08a28;
+    font-size: 70px;
+
+    transform: rotate(-25deg);
+}
+
+#pagina1 .inicio::after {
+    content: "❦";
+
+    position: absolute;
+    bottom: -100px;
+    right: -90px;
+
+    color: #b08a28;
+    font-size: 70px;
+
+    transform: rotate(155deg);
+}
+
+.inicio {
+    position: relative;
+    z-index: 5;
+
+    width: min(850px, 90%);
+
+    padding: 55px 40px;
+
+    background: rgba(255, 250, 235, .72);
+
+    border: 1px solid rgba(160, 125, 40, .5);
+
+    box-shadow:
+        0 20px 50px rgba(65, 45, 10, .22),
+        inset 0 0 30px rgba(255, 255, 255, .55);
+
+    animation: aparecer 1.5s ease;
+}
+
+/* =========================================
+   CORAZÓN INICIAL
+========================================= */
+
+.corazon {
+    font-size: 78px;
+
+    margin-bottom: 20px;
+
+    filter:
+        drop-shadow(0 5px 8px rgba(90, 55, 10, .3));
+
+    animation: latido 2s ease-in-out infinite;
+}
+
+/* =========================================
+   TÍTULO PRINCIPAL
+========================================= */
+
+.inicio h1 {
+    font-family: Georgia, serif;
+
+    font-size: clamp(38px, 6vw, 72px);
+
+    line-height: 1.12;
+
+    color: #15120d;
+
+    letter-spacing: 1px;
+
+    text-shadow:
+        1px 1px 0 #d4af37;
+}
+
+/* =========================================
+   SUBTÍTULO EN LETRA DE CARTA
+========================================= */
+
+.inicio p {
+    margin-top: 25px;
+
+    font-family:
+        "Brush Script MT",
+        "Segoe Script",
+        "Lucida Handwriting",
+        cursive;
+
+    font-size: clamp(23px, 3vw, 34px);
+
+    line-height: 1.5;
+
+    color: #8a681b;
+
+    transform: rotate(-1deg);
+}
+
+/* =========================================
+   BOTÓN NEGRO + DORADO
+========================================= */
+
+.boton3d {
+    margin-top: 35px;
+
+    padding: 16px 40px;
+
+    border: 2px solid #d4af37;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #181510,
+            #050403
+        );
+
+    color: #f5d778;
+
+    font-family: Georgia, serif;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 7px 0 #7b5b16,
+        0 12px 25px rgba(45, 30, 5, .35);
+
+    transition: .25s ease;
+}
+
+.boton3d:hover {
+    transform: translateY(-4px);
+
+    color: #fff3bb;
+
+    box-shadow:
+        0 11px 0 #7b5b16,
+        0 18px 30px rgba(45, 30, 5, .4);
+}
+
+.boton3d:active {
+    transform: translateY(5px);
+
+    box-shadow:
+        0 2px 0 #7b5b16,
+        0 5px 12px rgba(45, 30, 5, .3);
+}
+
+/* =========================================
+   PÁGINA 2
+========================================= */
+
+#pagina2 {
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            #5c481c 0%,
+            #201a0d 28%,
+            #090806 70%,
+            #020201 100%
+        );
+}
+
+#cielo {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        radial-gradient(circle, #fff4b5 1px, transparent 2px),
+        radial-gradient(circle, #d4af37 1px, transparent 2px),
+        radial-gradient(circle, white 1px, transparent 2px);
+
+    background-size:
+        70px 70px,
+        120px 120px,
+        190px 190px;
+
+    opacity: .7;
+
+    animation: cieloMover 20s linear infinite;
+}
+
+/* =========================================
+   LUNA
+========================================= */
+
+.luna {
+    position: absolute;
+
+    top: 6%;
+    right: 8%;
+
+    font-size: clamp(55px, 8vw, 100px);
+
+    filter:
+        drop-shadow(0 0 15px #f5d778)
+        drop-shadow(0 0 35px #b88b20);
+
+    animation: lunaFlotar 4s ease-in-out infinite;
+}
+
+/* =========================================
+   TÍTULO PÁGINA 2
+========================================= */
+
+.titulo {
+    position: absolute;
+
+    top: 6%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 90%;
+
+    text-align: center;
+
+    z-index: 5;
+}
+
+.titulo h2 {
+    font-family:
+        "Brush Script MT",
+        "Segoe Script",
+        cursive;
+
+    font-size: clamp(38px, 5vw, 58px);
+
+    font-weight: normal;
+
+    color: #f3d46c;
+
+    text-shadow:
+        0 0 10px #9f781e,
+        0 0 25px rgba(212, 175, 55, .7);
+}
+
+.titulo p {
+    margin-top: 8px;
+
+    font-family: Georgia, serif;
+
+    color: #fff3c4;
+
+    font-size: 17px;
+
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   ESTRELLAS
+========================================= */
+
+#zonaEstrellas {
+    position: absolute;
+
+    width: 80%;
+    height: 55%;
+
+    top: 30%;
+    left: 10%;
+
+    z-index: 3;
+}
+
+.estrella {
+    position: absolute;
+
+    width: 75px;
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 55px;
+
+    color: #f7d967;
+
+    opacity: 0;
+
+    transform-origin: center;
+
+    filter:
+        drop-shadow(0 0 7px #fff)
+        drop-shadow(0 0 18px #d4af37)
+        drop-shadow(0 0 35px #b8871f);
+
+    transition:
+        left 2s cubic-bezier(.2,.8,.2,1),
+        top 2s cubic-bezier(.2,.8,.2,1),
+        transform 2s cubic-bezier(.2,.8,.2,1),
+        opacity 1s ease;
+}
+
+.estrella.visible {
+    animation: estrellaDorada 2s ease-in-out infinite;
+}
+
+/* =========================================
+   FRASES
+========================================= */
+
+#frase {
+    position: absolute;
+
+    z-index: 10;
+
+    width: min(750px, 85%);
+
+    min-height: 170px;
+
+    left: 50%;
+    top: 52%;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+#textoFrase {
+    font-family:
+        "Brush Script MT",
+        "Segoe Script",
+        "Lucida Handwriting",
+        cursive;
+
+    font-size: clamp(24px, 3.2vw, 38px);
+
+    line-height: 1.5;
+
+    color: #f4d675;
+
+    text-shadow:
+        0 0 8px #8c6819,
+        0 0 20px rgba(212, 175, 55, .8);
+
+    transform: rotate(-1deg);
+}
+
+#frase.mostrar {
+    animation: fraseEntrada 1.3s ease forwards;
+}
+
+/* =========================================
+   PARTÍCULAS
+========================================= */
+
+#particulas {
+    position: absolute;
+
+    inset: -100px;
+
+    pointer-events: none;
+}
+
+.particula {
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #f5d778;
+
+    box-shadow:
+        0 0 8px #fff,
+        0 0 20px #d4af37;
+
+    animation:
+        particulaVolando 1.5s ease-out forwards;
+}
+
+/* =========================================
+   AMOR ETERNO
+========================================= */
+
+#palabraFinal {
+    position: absolute;
+
+    z-index: 20;
+
+    width: 100%;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(.5);
+
+    text-align: center;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+#palabraFinal.mostrarFinal {
+    animation:
+        finalEntrada 2s ease forwards;
+
+    pointer-events: auto;
+}
+
+.estrellasPalabra {
+    display: none;
+}
+
+#palabraFinal h1 {
+    position: relative;
+
+    display: inline-block;
+
+    font-family:
+        "Brush Script MT",
+        "Segoe Script",
+        cursive;
+
+    font-size: clamp(55px, 9vw, 105px);
+
+    font-weight: normal;
+
+    letter-spacing: 4px;
+
+    color: #f5d778;
+
+    opacity: 0;
+
+    transform: scale(.5);
+
+    transition:
+        transform 1.2s ease,
+        opacity 1.2s ease;
+
+    text-shadow:
+        0 0 8px #fff4b5,
+        0 0 20px #d4af37,
+        0 0 45px #8d6818;
+}
+
+#palabraFinal h1::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 55%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.9),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    animation:
+        brilloDorado 2.8s ease-in-out infinite;
+}
+
+#palabraFinal p {
+    margin: 25px auto 0;
+
+    width: 80%;
+
+    font-family:
+        "Brush Script MT",
+        "Segoe Script",
+        cursive;
+
+    font-size: clamp(22px, 3vw, 31px);
+
+    line-height: 1.5;
+
+    color: #f0dfaa;
+
+    opacity: 0;
+
+    animation:
+        aparecerTexto 1.5s ease 1.5s forwards;
+}
+
+/* =========================================
+   PÁGINA 3 — CARTA ANTIGUA
+========================================= */
+
+#pagina3 {
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #f7efd5,
+            #d9c48e
+        );
+}
+
+.fondo3 {
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,.65),
+            transparent 50%
+        ),
+        linear-gradient(
+            135deg,
+            #eee2bf,
+            #bda263
+        );
+}
+
+/* =========================================
+   MARCO DE CARTA
+========================================= */
+
+.carta {
+    position: relative;
+
+    z-index: 5;
+
+    width: min(850px, 90%);
+
+    max-height: 88vh;
+
+    overflow-y: auto;
+
+    padding: 45px 40px;
+
+    background:
+        linear-gradient(
+            rgba(255,250,230,.94),
+            rgba(242,228,190,.94)
+        );
+
+    border: 2px solid #a27b25;
+
+    box-shadow:
+        0 20px 45px rgba(50,35,8,.3),
+        inset 0 0 35px rgba(150,110,30,.12);
+
+    scrollbar-width: thin;
+}
+
+/* =========================================
+   DECORACIÓN DE CARTA
+========================================= */
+
+.carta::before {
+    content: "❦";
+
+    position: absolute;
+
+    top: 15px;
+    left: 20px;
+
+    font-size: 48px;
+
+    color: #a27b25;
+}
+
+.carta::after {
+    content: "❦";
+
+    position: absolute;
+
+    bottom: 10px;
+    right: 20px;
+
+    font-size: 48px;
+
+    color: #a27b25;
+
+    transform: rotate(180deg);
+}
+
+/* =========================================
+   CORAZÓN
+========================================= */
+
+.corazonGrande {
+    font-size: clamp(75px, 12vw, 145px);
+
+    animation:
+        latido 1.8s ease-in-out infinite;
+
+    filter:
+        drop-shadow(0 5px 10px rgba(80,45,5,.3));
+}
+
+/* =========================================
+   LÍNEA DECORATIVA
+========================================= */
+
+.linea {
+    position: relative;
+
+    width: 180px;
+    height: 2px;
+
+    margin: 25px auto;
+
+    background: #b08a28;
+}
+
+.linea::before,
+.linea::after {
+    content: "✦";
+
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #b08a28;
+
+    font-size: 18px;
+}
+
+.linea::before {
+    left: -28px;
+}
+
+.linea::after {
+    right: -28px;
+}
+
+/* =========================================
+   TEXTO ESCRITO CON PLUMA
+========================================= */
+
+#verso {
+    white-space: pre-line;
+
+    font-family:
+        "Brush Script MT",
+        "Segoe Script",
+        "Lucida Handwriting",
+        cursive;
+
+    font-size: clamp(21px, 2.4vw, 30px);
+
+    line-height: 1.8;
+
+    color: #211b12;
+
+    text-shadow:
+        .5px .5px 0 #8e722f;
+
+    transform: rotate(-.5deg);
+
+    text-align: left;
+
+    padding: 0 20px;
+}
+
+/* =========================================
+   FINAL
+========================================= */
+
+#final {
+    margin-top: 35px;
+
+    opacity: 0;
+}
+
+#final.mostrar {
+    animation:
+        aparecer 2s ease forwards;
+}
+
+#final h2 {
+    font-family:
+        "Brush Script MT",
+        "Segoe Script",
+        cursive;
+
+    font-size: clamp(35px, 5vw, 55px);
+
+    font-weight: normal;
+
+    color: #17130d;
+
+    text-shadow:
+        1px 1px 0 #d4af37;
+}
+
+#final p {
+    margin-top: 18px;
+
+    font-family:
+        "Brush Script MT",
+        "Segoe Script",
+        cursive;
+
+    font-size: clamp(22px, 3vw, 30px);
+
+    line-height: 1.6;
+
+    color: #70551b;
+}
+
+.corazonesFinal {
+    margin: 25px 0;
+
+    font-size: 30px;
+
+    letter-spacing: 8px;
+
+    animation:
+        brilloSuave 2s ease-in-out infinite;
+}
+
+#final small {
+    font-family: Georgia, serif;
+
+    color: #5c481b;
+
+    font-size: 15px;
+}
+
+/* =========================================
+   ANIMACIONES
+========================================= */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes latido {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+@keyframes fondoEstrellas {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-90px);
+    }
+}
+
+@keyframes cieloMover {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.04);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes lunaFlotar {
+    0%,
+    100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(5deg);
+    }
+}
+
+@keyframes estrellaDorada {
+    0%,
+    100% {
+        filter:
+            drop-shadow(0 0 7px white)
+            drop-shadow(0 0 18px #d4af37)
+            drop-shadow(0 0 30px #9c741b);
+
+        transform: scale(1);
+    }
+
+    50% {
+        filter:
+            drop-shadow(0 0 15px white)
+            drop-shadow(0 0 35px #f5d778)
+            drop-shadow(0 0 60px #d4af37);
+
+        transform: scale(1.22);
+    }
+}
+
+@keyframes fraseEntrada {
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(.5)
+            rotate(-4deg);
+    }
+
+    60% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.05)
+            rotate(1deg);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1)
+            rotate(-1deg);
+    }
+}
+
+@keyframes particulaVolando {
+    from {
+        opacity: 1;
+
+        transform:
+            translate(0,0)
+            scale(1);
+    }
+
+    to {
+        opacity: 0;
+
+        transform:
+            translate(
+                calc((var(--x) - 50) * 3px),
+                calc((var(--y) - 50) * 3px)
+            )
+            scale(0);
+    }
+}
+
+@keyframes finalEntrada {
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(.4);
+    }
+
+    60% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.08);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+}
+
+@keyframes brilloDorado {
+    0% {
+        left: -100%;
+    }
+
+    45% {
+        left: 130%;
+    }
+
+    100% {
+        left: 130%;
+    }
+}
+
+@keyframes aparecerTexto {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes brilloSuave {
+    0%,
+    100% {
+        opacity: .7;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+}
+
+/* =========================================
+   CELULAR
+========================================= */
+
+@media (max-width: 600px) {
+
+    #pagina1::before {
+        inset: 12px;
+    }
+
+    .inicio {
+        width: 88%;
+        padding: 40px 22px;
+    }
+
+    .corazon {
+        font-size: 62px;
+    }
+
+    .inicio h1 {
+        font-size: 37px;
+    }
+
+    .inicio p {
+        font-size: 23px;
+    }
+
+    .boton3d {
+        padding: 14px 25px;
+        font-size: 15px;
+    }
+
+    .titulo {
+        top: 5%;
+    }
+
+    .titulo h2 {
+        font-size: 37px;
+    }
+
+    .titulo p {
+        font-size: 14px;
+    }
+
+    .estrella {
+        width: 55px;
+        height: 55px;
+        font-size: 42px;
+    }
+
+    #textoFrase {
+        font-size: 23px;
+    }
+
+    #palabraFinal h1 {
+        font-size: 48px;
+        letter-spacing: 2px;
+    }
+
+    #palabraFinal p {
+        font-size: 21px;
+    }
+
+    .carta {
+        width: 90%;
+        padding: 35px 20px;
+    }
+
+    #verso {
+        font-size: 21px;
+        line-height: 1.7;
+        padding: 0 5px;
+    }
+
+    #final h2 {
+        font-size: 38px;
+    }
+
+    #final p {
+        font-size: 22px;
+    }
+}
